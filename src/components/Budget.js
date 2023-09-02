@@ -3,7 +3,7 @@ import { AppContext } from '../context/AppContext';
 
 const Budget = () => {
     const { dispatch } = useContext(AppContext);
-    const { selectedCurrency } = useContext(AppContext);
+    //const { selectedCurrency } = useContext(AppContext);
     const { expenses } = useContext(AppContext); // Get expenses for totalExpenses calculation
     const totalExpenses = expenses.reduce((total, item) => total + item.cost, 0); // Calculate total expenses
 
@@ -34,13 +34,13 @@ const Budget = () => {
 
     return (
         <div className="alert alert-secondary">
-            <span>Budget:{selectedCurrency} 
+            <span>Budget: ₹ 
                 <input
                     required="required"
                     type="number"
                     id="budget"
                     value={budget}
-                    style={{ marginLeft: '2rem', size: 10 }}
+                    style={{ marginLeft: '1rem', size: 10 }}
                     max="20000"
                     min={totalExpenses}
                     onChange={(e) => setBudget(parseInt(e.target.value))}
